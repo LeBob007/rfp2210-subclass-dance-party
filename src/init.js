@@ -46,6 +46,27 @@ $(document).ready(function() {
       //$(this).animate(targetPlace);
     });
 
+    $('.growingDancer').on({
+      mouseenter: function() {
+        $(this).css('borderColor', 'pink');
+      },
+      mouseleave: function() {
+        $(this).css('borderColor', 'cyan');
+      }
+    });
+
+    $('.dancer').on('mouseover', function(event) {
+      var moves = [
+        {'top': $(this).position().top + 50},
+        {'top': $(this).position().top - 50},
+        {'left': $(this).position().top + 50},
+        {'left': $(this).position().top - 50}
+      ];
+
+      var randomMove = moves[Math.floor(Math.random() * moves.length)];
+      $(this).animate(randomMove);
+    });
+
   });
 
   $('.lineUpButton').on('click', function(event) {
